@@ -1,21 +1,19 @@
-def filter(input_str,criteria):
+def filter(input_str,criteriaFunc):
     answer_list=[]
     for string in input_str:
-        if(criteria(string)):
+        if(criteriaFunc(string)):
             answer_list.append(string)
     return answer_list
     
-def is_length_five(string):
-    if(len(string)==5):
-        return True
-    else:
-        return False
+def checkStringOfLength(length_of_string):
+    predicate=lambda string_item:len(string_item)==length_of_string
+    return predicate
         
-def print_to_terminal(input_str):
+def printToTerminal(input_str):
     for string in input_str:
         print(string)
     
 lst_sample=['apple','grapes','mango']
-result=filter(lst_sample,is_length_five)
-print_to_terminal(result)
+result=filter(lst_sample,checkStringOfLength(5))
+printToTerminal(result)
 
