@@ -5,7 +5,7 @@ def filter(input_str,criteria):
             answer_list.append(string)
     return answer_list
     
-def length_five(string):
+def is_length_five(string):
     if(len(string)==5):
         return True
     else:
@@ -16,6 +16,6 @@ def print_result(input_str):
         print(string)
     
 lst_sample=['apple','grapes','mango']
-result=filter(lst_sample,length_five)
+result=filter(lst_sample,is_length_five)
 print_result(result)
 
