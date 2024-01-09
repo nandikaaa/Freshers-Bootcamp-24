@@ -11,11 +11,11 @@ def is_length_five(string):
     else:
         return False
         
-def print_result(input_str):
+def print_to_terminal(input_str):
     for string in input_str:
         print(string)
     
 lst_sample=['apple','grapes','mango']
 result=filter(lst_sample,is_length_five)
-print_result(result)
+print_to_terminal(result)
 
