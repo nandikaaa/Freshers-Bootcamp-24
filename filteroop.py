@@ -1,4 +1,4 @@
-class stringFilter:
+class StringFilter:
     def __init__(self, input_str):
         self.input_str = input_str
 
@@ -9,18 +9,25 @@ class stringFilter:
                 answer_list.append(string)
         return answer_list
 
-class stringCriteria:
-    def check_string_length(length_of_string):
-        predicate = lambda string_item: len(string_item) == length_of_string
-        return predicate
+class StringCriteria:
+    def __init__(self, length_of_string):
+        self.length_of_string = length_of_string
 
-class stringPrinter:
-    def print_to_terminal(input_str):
-        for string in input_str:
+    def check_string_length(self, string_item):
+        return len(string_item) == self.length_of_string
+
+class StringPrinter:
+    def __init__(self, input_str):
+        self.input_str = input_str
+
+    def print_to_terminal(self):
+        for string in self.input_str:
             print(string)
 
+
 lst_sample = ['apple', 'grapes', 'mango']
-string_filter = stringFilter(lst_sample)
-criteria_func = stringCriteria.check_string_length(6)
-result = string_filter.filter(criteria_func)
-stringPrinter.print_to_terminal(result)
+string_filter = StringFilter(lst_sample)
+criteria = StringCriteria(length_of_string=6)
+result = string_filter.filter(criteria.check_string_length)
+printer = StringPrinter(result)
+printer.print_to_terminal()
